@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from . import models, schemas
+import models, schemas
 
 # Generic helpers
 def create_project(db: Session, data: schemas.ProjectCreate) -> models.Project:

@@ -1,7 +1,7 @@
 from datetime import datetime, date
 from sqlalchemy import String, Integer, Float, Date, DateTime, ForeignKey, Text, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from .database import Base
+from database import Base
 
 class Project(Base):
     __tablename__ = "projects"
