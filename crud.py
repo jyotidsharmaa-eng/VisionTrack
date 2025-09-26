@@ -1,7 +1,6 @@
 from sqlalchemy.orm import Session
 import models, schemas
 
-# Generic helpers
 def create_project(db: Session, data: schemas.ProjectCreate) -> models.Project:
     obj = models.Project(**data.dict())
     db.add(obj); db.commit(); db.refresh(obj)
@@ -18,7 +17,6 @@ def delete_project(db: Session, project_id: int) -> bool:
     if not obj: return False
     db.delete(obj); db.commit(); return True
 
-# Tasks
 def create_task(db: Session, data: schemas.TaskCreate) -> models.Task:
     obj = models.Task(**data.dict())
     db.add(obj); db.commit(); db.refresh(obj)
@@ -30,7 +28,6 @@ def list_tasks(db: Session, project_id: int | None = None):
         q = q.filter(models.Task.project_id == project_id)
     return q.all()
 
-# Costs
 def create_cost(db: Session, data: schemas.CostCreate) -> models.Cost:
     obj = models.Cost(**data.dict())
     db.add(obj); db.commit(); db.refresh(obj)
@@ -42,7 +39,6 @@ def list_costs(db: Session, project_id: int | None = None):
         q = q.filter(models.Cost.project_id == project_id)
     return q.all()
 
-# Scope Changes
 def create_scope_change(db: Session, data: schemas.ScopeChangeCreate) -> models.ScopeChange:
     obj = models.ScopeChange(**data.dict())
     db.add(obj); db.commit(); db.refresh(obj)

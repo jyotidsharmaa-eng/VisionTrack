@@ -35,7 +35,7 @@ class Cost(Base):
     __tablename__ = "costs"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     project_id: Mapped[int] = mapped_column(ForeignKey("projects.id", ondelete="CASCADE"), index=True)
-    category: Mapped[str] = mapped_column(String(100), index=True)  # labor, software, infra, etc.
+    category: Mapped[str] = mapped_column(String(100), index=True)
     amount: Mapped[float] = mapped_column(Float, default=0.0)
     incurred_on: Mapped[date] = mapped_column(Date, nullable=False)
 

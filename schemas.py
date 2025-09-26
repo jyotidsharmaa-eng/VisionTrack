@@ -1,7 +1,6 @@
 from datetime import date, datetime
 from pydantic import BaseModel, Field
 
-# Project
 class ProjectBase(BaseModel):
     name: str = Field(..., max_length=200)
     owner: str
@@ -19,7 +18,6 @@ class ProjectRead(ProjectBase):
     class Config:
         from_attributes = True
 
-# Task
 class TaskBase(BaseModel):
     name: str
     assignee: str | None = None
@@ -37,7 +35,6 @@ class TaskRead(TaskBase):
     class Config:
         from_attributes = True
 
-# Cost
 class CostBase(BaseModel):
     category: str
     amount: float
@@ -52,7 +49,6 @@ class CostRead(CostBase):
     class Config:
         from_attributes = True
 
-# Scope
 class ScopeChangeBase(BaseModel):
     version: int = 1
     description: str
